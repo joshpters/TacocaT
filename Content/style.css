@@ -88,7 +88,7 @@ body {
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
     /*overflow-y: scroll;*/
-    background-image: url("../Images/sun-bg.svg");
+    background-image: url("../Images/flip-bg.svg");
     background-repeat: no-repeat;
     background-position: center;
 }
