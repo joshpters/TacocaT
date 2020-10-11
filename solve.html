@@ -55,30 +55,19 @@
         <!-- Page Content -->
         <div id="content">
             <div class="container" id="content-container">
-                <!--<div class="row bottom-buffer">
-                    <div class="col-lg-12 text-center">
-                        <h1 class="mt-5">Enter Some Text</h1>
-                    </div>
-                </div>-->
                 <div class="row text-center bottom-buffer">
                     <div class="col-md-12 col-xl-10 input-column">
-                        <input id="input-string" type="text" value="" placeholder="Enter some text..." />
+                        <input id="input" class="input-string" type="text" value="" placeholder="Enter some text..." />
                     </div>
                     <div class="col-md-12 col-xl-2">
                         <button id="solve-button" class="custom-button">
-                            Reverse
+                            Check
                         </button>
                     </div>
                 </div>
-                <div class="row text-center">
-                    <div class="col output-text">
-                        <h3>OUTPUT</h3>
-                    </div>
-                </div>
-                <div id="result" class="row h-100 text-center justify-content-center">
-                    <div class="col align-self-center" id="output-column">
-                        <div id="output">   </div>
-                    </div>
+
+                <div class="output-container">
+
                 </div>
             </div>
         </div>
@@ -90,34 +79,31 @@
     <script src="//stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
     <script>
-        function tacocat() {
-            inputText = document.getElementById('input-string').value
-            output = document.getElementById('output')
+        colorShifted = false;
+        //.flip-card:hover .flip-card-inner {
+        //  transform: rotateY(180deg);
+        //}
+        function updateOutput() {
+            document.querySelector('.flip-card-inner').style.transform = "";
+            let inputString = document.getElementById('input').value;
+            let reversedString = tacocat(inputString)
+            document.getElementById('forward-output').innerHTML = inputString;
+            document.getElementById('backward-output').innerHTML = reversedString;
 
-            if (!inputText) {
-                output.style.border = "1px solid red"
-                output.style.color = "red"
-                output.innerHTML = "Please enter some text to reverse."
-                return
+            if (inputString == reversedString && inputString.length > 1) {
+                //TACOCAT!!!
+                colorShiftGreen();
+                
             }
-
-            output.style.border = "1px solid #fcd088"
-            output.style.color = "#fcd088"
-            
-            
-            output.innerHTML = reverseText(inputText);
-
-            outputText = reverseText(inputText);
-
-            if (validate(inputText, outputText)){
-                console.log("TACOCAT!!!")
-            }
-
         }
 
+        document.getElementById('input').addEventListener('keyup', function () {
+            updateOutput();
+        })
+
         function validate(textOne, textTwo) {
-            textOne = textOne.replace(/\s/g, '');
-            textTwo = textTwo.replace(/\s/g, '');
+            textOne = textOne.replace(/\s|\'|\"/g, '');
+            textTwo = textTwo.replace(/\s|\'|\"/g, '');
 
             if (textOne.toLowerCase() == textTwo.toLowerCase()) {
                 return true;
@@ -126,7 +112,7 @@
             return false;
         }
 
-        function reverseText(text) {
+        function tacocat(text) {
             let output = "";
             for (let i = text.length - 1; i >= 0; i--) {
                 output += text[i];
@@ -134,8 +120,23 @@
             return output;
         }
 
+        function colorShiftGreen() {
+            document.querySelector('.flip-card').style.border = "2px solid green"
+            document.querySelectorAll('.flip-card-front, .flip-card-back').forEach(flipcard => {
+                flipcard.style.color = "green"
+            })
+        }
+
+        function resetColor() {
+            document.querySelector('.flip-card').style.border = "2px solid #fcd088"
+            document.querySelectorAll('.flip-card-front, .flip-card-back').forEach(flipcard => {
+                flipcard.style.color = "#fcd088"
+            })
+        }
+
         document.getElementById('solve-button').addEventListener('click', function (event) {
-            tacocat();
+            //document.querySelector('.flip-card').style.transform = "rotateY(180deg)";
+            document.querySelector('.flip-card-inner').style.transform = "rotateY(180deg)";
         });
     </script>
 

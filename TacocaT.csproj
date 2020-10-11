@@ -68,7 +68,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\style.css" />
+    <Content Include="code.html" />
+    <Content Include="Images\css3.svg" />
+    <Content Include="Images\HTML5_logo_and_wordmark.svg" />
+    <Content Include="Images\javascript.svg" />
     <Content Include="index.html" />
+    <Content Include="Content\prism.css" />
+    <Content Include="Scripts\prism.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

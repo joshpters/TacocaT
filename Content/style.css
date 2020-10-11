@@ -5,22 +5,6 @@
     z-index: 1000;
 }
 
-.output {
-    margin-top: 20px;
-}
-
-#output {
-    border: 1px solid #fcd088;
-    color: #fcd088;
-    font-size: 20px;
-    padding: 12px;
-    min-height: 58px;
-}
-
-#output, #input-string{
-    padding:12px;
-}
-
 @media (max-width: 1199.98px) {
     .input-column {
         margin-bottom: 20px;
@@ -31,9 +15,18 @@
     width: 100%;
 }
 
+#collapseOne {
+/*    max-height: 50vh;*/
+    overflow-y: auto;
+}
+
+.card {
+    max-height: calc(100% - 100px) !important;
+}
+
 #content {
+    overflow-y: scroll !important;
     /*height: calc(100% - 80px);*/
-    overflow: hidden;
     width: 100%;
     background-color: blue;
     flex-grow: 1;
@@ -42,71 +35,19 @@
     border-bottom-right-radius: 30px;
 }
 
-@keyframes fadein {
-    from {
-        opacity: 0;
-    }
 
-    to {
-        opacity: 1;
-    }
-}
 
-/* Firefox < 16 */
-@-moz-keyframes fadein {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-/* Safari, Chrome and Opera > 12.1 */
-@-webkit-keyframes fadein {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-/* Internet Explorer */
-@-ms-keyframes fadein {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-/* Opera < 12.1 */
-@-o-keyframes fadein {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
 
 #window {
-    -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
-    -moz-animation: fadein 1s; /* Firefox < 16 */
-    -ms-animation: fadein 1s; /* Internet Explorer */
-    -o-animation: fadein 1s; /* Opera < 12.1 */
-    animation: fadein 1s;
-
+    /*-webkit-animation: fadein 1s;*/ /* Safari, Chrome and Opera > 12.1 */
+    /*-moz-animation: fadein 1s;*/ /* Firefox < 16 */
+    /*-ms-animation: fadein 1s;*/ /* Internet Explorer */
+    /*-o-animation: fadein 1s;*/ /* Opera < 12.1 */
+    /*animation: fadein 1s;*/
+    overflow-y: scroll !important;
     width: 95%;
     height: 95%;
     margin: auto;
-    border-radius: 50px;
     filter: drop-shadow(-30px 30px 10px rgba(0, 0, 0, 0.5));
     display: flex;
     flex-direction: column;
@@ -128,6 +69,7 @@
 }
 
 #content-container {
+
     position: absolute;
     top: 50%;
     left: 50%;
@@ -154,17 +96,22 @@ html, body {
     margin-bottom: 20px;
 }
 
-#input-string {
+.input-string {
     width: 100%;
     height: 100%;
     font-size: 20px;
+    min-height: 58px;
+    text-transform: uppercase;
 }
 
 #output-column{
-    min-height: 50px;
+    min-height: 58px;
 }
 
 .output-text {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
     color: #fcd088;
 }
 
@@ -187,3 +134,48 @@ html, body {
     background-color: transparent;
     text-decoration: none;
 }
+
+
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-card {
+    background-color: transparent;
+    width: 100%;
+    min-height: 58px;
+    border: 2px solid #fcd088;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+}
+
+.output-container {
+    color: #fcd088;
+    font-size: 20px;
+    padding: 12px;
+    width: 100%;
+    min-height: 58px;
+    border: 2px solid #fcd088;
+}
+
+/* Style the back side */
+.flip-card-back {
+    transform: rotateY(180deg);
+}
+
