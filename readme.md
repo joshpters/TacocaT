@@ -25,7 +25,7 @@ git clone https://github.com/joshpters/TacocaT
 
 This is the core function that determines if a string is a palindrome.
 
-The minisite has a modified version of this to work with animations for better appearence.
+The minisite has a modified version of this function to work with the page animations.
 
 ```javascript
 function checkPalindrome(text) {
