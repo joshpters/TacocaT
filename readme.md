@@ -15,7 +15,11 @@ to assess a candidate’s ability to code an impromptu algorithm.
 
 You can view this site [live](https://tacocat-challenge.netlify.app).
 
-To download and run locally, clone this repository with $ git clone https://github.com/joshpters/TacocaT
+To download and run locally, clone this repository and open index.html.
+
+``` sourceCode
+git clone https://github.com/joshpters/TacocaT
+```
 
 ## Core Function
 
