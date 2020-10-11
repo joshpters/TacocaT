@@ -2,7 +2,7 @@
 
 This is a complete minisite that contains a visual representation of the "Tacocat" challenge.
 
-# What is the "TacocaT" challenge?
+## What is the "TacocaT" challenge?
 
 The word "Tacocat" is a palindrome, meaning it's spelled the same forwards and backwards.
 This challenge is about building a function to detect these.
@@ -14,6 +14,8 @@ to assess a candidate’s ability to code an impromptu algorithm.
 ## Installation
 
 You can view this site [live](https://tacocat-challenge.netlify.app).
+
+To download and run locally, clone this repository with $ git clone https://github.com/joshpters/TacocaT
 
 ## Core Function
 
