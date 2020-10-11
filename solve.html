@@ -13,6 +13,7 @@
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link href="Content/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 </head>
 
 <body>
@@ -32,20 +33,17 @@
                                 Home
                             </a>
                         </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/Solve.html">Solve</a>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/Solve.html">Solve</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/Code.html">Code</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Git</a>
+                            <a class="nav-link" href="https://github.com/joshpters/SunsetHills">Git</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Portfolio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Blog Post/YouTube Explanation</a>
+                            <a class="nav-link" href="https://joshua-peters.netlify.app">Portfolio</a>
                         </li>
                     </ul>
                 </div>
@@ -53,22 +51,36 @@
         </nav>
 
         <!-- Page Content -->
-        <div id="content">
+        <div class="content content-centered">
             <div class="container" id="content-container">
+                <div class="row text-center">
+                    <div class="col">
+                        <div class="animate__animated animate__flipInY">
+                            <h1 class="text-center">TacocaT</h1>
+                        </div>
+                        <ul class="list-unstyled">
+                            <li class="animate__animated animate__fadeInDown">Type some text to see if it's a palindrome!</li>
+                            <li class="animate__animated animate__fadeInDown">The algorithm used for this compares the first &amp; last letters, moving inward each iteration to maximize efficiency.</li>
+                        </ul>
+                    </div>
+                </div>
                 <div class="row text-center bottom-buffer">
                     <div class="col-md-12 col-xl-10 input-column">
-                        <input id="input" class="input-string" type="text" value="" placeholder="Enter some text..." />
+                        <input id="input" class="animate__animated animate__flipInX input-string" type="text" value="" placeholder="Enter some text..." />
                     </div>
                     <div class="col-md-12 col-xl-2">
-                        <button id="solve-button" class="custom-button">
+                        <button id="solve-button" class="animate__animated animate__flipInX custom-button">
                             Check
                         </button>
                     </div>
                 </div>
 
-                <div class="output-container">
-
+                <div class="row">
+                    <div class="col">
+                        <div class="output-container animate__animated animate__flipInX"></div>
+                    </div>
                 </div>
+
             </div>
         </div>
     </div>
@@ -79,27 +91,136 @@
     <script src="//stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
     <script>
-        colorShifted = false;
-        //.flip-card:hover .flip-card-inner {
-        //  transform: rotateY(180deg);
-        //}
-        function updateOutput() {
-            document.querySelector('.flip-card-inner').style.transform = "";
-            let inputString = document.getElementById('input').value;
-            let reversedString = tacocat(inputString)
-            document.getElementById('forward-output').innerHTML = inputString;
-            document.getElementById('backward-output').innerHTML = reversedString;
-
-            if (inputString == reversedString && inputString.length > 1) {
-                //TACOCAT!!!
-                colorShiftGreen();
-                
+        function calculate(num) {
+            output = 0;
+            for (let i = num-1; i > 0; i--) {
+                output += i;
             }
+            return output;
         }
 
+        console.log(calculate(25000))
+        
+        timeoutFunctions = new Array();
+        const SPEED = 0.5;
+
+        //update output field every new key that is added to the input
         document.getElementById('input').addEventListener('keyup', function () {
-            updateOutput();
+            let inputString = document.getElementById('input').value;
+            updateOutputContainer(inputString.toUpperCase());
         })
+
+        //add divs with each letter into the output container
+        function updateOutputContainer(text) {
+            let outputContainer = document.querySelector('.output-container');
+            let HTML = "";
+
+            if (text.length == 0) {
+                outputContainer.innerHTML = HTML;
+                reset();
+                return;
+            }
+
+            //create HTML with a div surrounding every letter
+            for (let i = 0; i < text.length; i++) {
+                if (tacoCharCheck(text[i])) {
+                    HTML += `<div class="valid">${text[i]}</div>`
+                    continue
+                }
+                HTML += `<div>${text[i]}</div>`
+
+            }
+            //update output container with the new div html
+            outputContainer.innerHTML = HTML;
+        }
+
+        function dispatchAnimation(resultArray) {
+            reset();
+            if (resultArray.length < 1) {
+                return;
+            }
+            let status = 0;
+            let endNum = resultArray.length;
+            let backward = 0;
+            let delay = 0;
+            for (let forward = 0; forward < endNum; forward++) {
+                backward = endNum - 1 - forward;
+                delay = forward;
+ 
+                if ((backward - forward) < 1) {
+                    status = 1;
+                    break;
+                }
+                
+                if (resultArray[forward]) {
+                    let first = document.querySelectorAll(`.output-container .valid`)[forward]
+                    let last = document.querySelectorAll(`.output-container .valid`)[backward]
+
+                    highlightGreen(first, delay)
+                    highlightGreen(last, delay)
+                } else {
+                    let first = document.querySelectorAll(`.output-container .valid`)[forward]
+                    let last = document.querySelectorAll(`.output-container .valid`)[backward]
+
+                    highlightRed(first, delay)
+                    highlightRed(last, delay)
+                    status = 2;
+                    break;
+                }
+            }
+
+            finished(status, delay);
+
+        }
+
+        function highlightGreen(elem, delay) {
+
+            timeoutFunctions.push(setTimeout(() => {
+                elem.style.backgroundColor = "#39FF14";
+            }, (delay * 1000) * SPEED));
+
+            timeoutFunctions.push(setTimeout(() => {
+                elem.style.backgroundColor = "";
+            }, ((delay * 1000) + 500) * SPEED));
+        }
+
+        function highlightRed(elem, delay) {
+            timeoutFunctions.push(setTimeout(() => {
+                elem.style.backgroundColor = "red";
+            }, (delay * 1000) * SPEED));
+        }
+
+        function finished(status, delay) {
+            switch (status) {
+                case 0:
+                    break;
+                case 1:
+                    timeoutFunctions.push(setTimeout(() => {
+                        document.querySelector('.output-container').style.border = "2px solid #39FF14"
+                    }, (delay * 1000) * SPEED));
+                    break;
+                case 2:
+                    timeoutFunctions.push(setTimeout(() => {
+                        document.querySelector('.output-container').style.border = "2px solid red"
+                    }, (delay * 1000) * SPEED));
+                    break;
+            }           
+        }
+
+        function reset(){
+            //clear all dispatched timeout functions
+            timeoutFunctions.forEach(timeoutFunction => {
+                clearTimeout(timeoutFunction);
+            })
+
+            //reset colors
+            document.querySelectorAll(`.output-container div`).forEach(elem => {
+                elem.style.backgroundColor = ""
+            })
+
+            document.querySelector('.output-container').style.border = "2px solid #fcd088"
+
+        }
 
         function validate(textOne, textTwo) {
             textOne = textOne.replace(/\s|\'|\"/g, '');
@@ -112,7 +233,35 @@
             return false;
         }
 
+        function tacoCharCheck(text) {
+            return /\w/g.test(text);
+        }
+
+        function cleanString(text) {
+            return text.replace(/[^\w+]+/gi, '').toUpperCase();
+        }
+
         function tacocat(text) {
+            //generate output array
+            let e = text.length - 1;
+            let halfwayPoint = e / 2; 
+            let outputArray = new Array(e + 1);
+            for (let b = 0; b < halfwayPoint; b++) {
+                if (text[b] != text[e]) {
+                    return outputArray;
+                }
+
+                outputArray[b] = true;
+                outputArray[e] = true;
+
+                e--;
+                
+            }
+
+            return outputArray;
+        }
+
+        function reverseString(text) {
             let output = "";
             for (let i = text.length - 1; i >= 0; i--) {
                 output += text[i];
@@ -135,8 +284,8 @@
         }
 
         document.getElementById('solve-button').addEventListener('click', function (event) {
-            //document.querySelector('.flip-card').style.transform = "rotateY(180deg)";
-            document.querySelector('.flip-card-inner').style.transform = "rotateY(180deg)";
+            let inputString = document.getElementById('input').value;
+            dispatchAnimation(tacocat(cleanString(inputString)))
         });
     </script>
 

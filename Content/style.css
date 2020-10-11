@@ -11,6 +11,10 @@
     }
 }
 
+body {
+    overflow: hidden;
+}
+
 #solve-button{
     width: 100%;
 }
@@ -25,7 +29,7 @@
 }
 
 #content {
-    overflow-y: scroll !important;
+    /*overflow-y: scroll !important;*/
     /*height: calc(100% - 80px);*/
     width: 100%;
     background-color: blue;
@@ -39,12 +43,6 @@
 
 
 #window {
-    /*-webkit-animation: fadein 1s;*/ /* Safari, Chrome and Opera > 12.1 */
-    /*-moz-animation: fadein 1s;*/ /* Firefox < 16 */
-    /*-ms-animation: fadein 1s;*/ /* Internet Explorer */
-    /*-o-animation: fadein 1s;*/ /* Opera < 12.1 */
-    /*animation: fadein 1s;*/
-    overflow-y: scroll !important;
     width: 95%;
     height: 95%;
     margin: auto;
@@ -68,21 +66,48 @@
     Chrome, Safari, Opera
 }
 
-#content-container {
-
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    IE 9 -webkit-transform: translate(-50%, -50%);
-    Chrome, Safari, Opera
-}
-
 @media (min-width: 992px) {
     #window {
         width: 90%;
     }
+}
+
+#bottom-icons {
+    position: absolute;
+    bottom: 20px;
+}
+
+#bottom-icons img {
+    max-width: 100px;
+}
+
+.content {
+    width: 100%;
+    flex-grow: 1;
+    background-color: #242a30;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    /*overflow-y: scroll;*/
+    background-image: url("../Images/sun-bg.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#code-content {
+    overflow-y: scroll;
+}
+
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid white;
+    border-top: 1px solid white;
+}
+
+.content-centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 html, body {
@@ -135,36 +160,6 @@ html, body {
     text-decoration: none;
 }
 
-
-/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
-.flip-card {
-    background-color: transparent;
-    width: 100%;
-    min-height: 58px;
-    border: 2px solid #fcd088;
-    perspective: 1000px; /* Remove this if you don't want the 3D effect */
-}
-
-/* This container is needed to position the front and back side */
-.flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-}
-
-/* Position the front and back side */
-.flip-card-front, .flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    
-    -webkit-backface-visibility: hidden; /* Safari */
-    backface-visibility: hidden;
-}
-
 .output-container {
     color: #fcd088;
     font-size: 20px;
@@ -172,10 +167,38 @@ html, body {
     width: 100%;
     min-height: 58px;
     border: 2px solid #fcd088;
+    display:flex;
+    overflow-x: hidden;
+    transition: border 0.5s ease;
+    
 }
 
-/* Style the back side */
-.flip-card-back {
-    transform: rotateY(180deg);
+.output-container div:nth-of-type(1) {
+    margin-left: auto;
 }
 
+.output-container div:nth-last-of-type(1) {
+    margin-right: auto;
+}
+
+.output-container div {
+    padding-left: 0.5vw;
+    padding-right: 0.5vw;
+    transition: background-color 0.5s ease;
+}
+
+:root {
+    --animate-delay: 0.5s;
+}
+
+/*CODE PREVIEW SECTION*/
+.customNav .nav-link.active,
+.nav-item.show .nav-link {
+    color: #202529;
+    background-color: #fcd088;
+    border-color: #fcd088;
+}
+
+.customNav a {
+    color: white;
+}

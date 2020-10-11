@@ -39,13 +39,10 @@
                             <a class="nav-link active" href="/Code.html">Code</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Git</a>
+                            <a class="nav-link" href="https://github.com/joshpters/SunsetHills">Git</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Portfolio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Blog Post/YouTube Explanation</a>
+                            <a class="nav-link" href="https://joshua-peters.netlify.app">Portfolio</a>
                         </li>
                     </ul>
                 </div>
@@ -53,111 +50,212 @@
         </nav>
 
         <!-- Page Content -->
-        <div id="content">
+        <div class="content" id="code-content">
             <div class="container" id="content-container">
                 <div class="row">
                     <div class="col-lg-12 text-center">
-                        <h1 class="mt-5">Tacocat Challenge</h1>
+                        <h1 class="mt-5">Code Preview</h1>
+                        <p>These are snippets of code from the core of this project. Features such as animations and dynamic DOM changes are not included here.</p>
                     </div>
                 </div>
-                <div class="row">
-                    <div style ="max-width: 100%; max-height:500px;" class="col">
-                        <!-- COLLAPSIBLE CODE PREVIEW -->
-                        <div class="accordion" id="accordionExample">
-                            <div class="card">
-                                <div class="card-header" id="headingOne">
-                                    <h2 class="mb-0">
-                                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                            Javascript
-                                        </button>
-                                    </h2>
-                                </div>
+                <div class="row customNav">
+                    <div style="max-width: 100%; max-height:500px;" class="col">
 
-                                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                    <div class="card-body">
-                                        <pre>
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#javascript" role="tab" aria-controls="home" aria-selected="true">JavaScript</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#html" role="tab" aria-controls="profile" aria-selected="false">HTML</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#css" role="tab" aria-controls="contact" aria-selected="false">CSS</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="javascript" role="tabpanel" aria-labelledby="home-tab">
+                                <pre>
 <code class="language-js line-numbers">
-function tacocat() {
-    inputText = document.getElementById('input-string').value
-    output = document.getElementById('output')
-
-    if (!inputText) {
-    output.style.border = "1px solid red"
-    output.style.color = "red"
-    output.innerHTML = "Please enter some text to reverse."
-    return
+function checkPalindrome(text) {
+    let latter = text.length - 1;
+    let halfwayPoint = latter / 2;
+    for (let former = 0; former < halfwayPoint; b++) {
+        if (text[former] != text[latter]) {
+            return false;
+        }
+        latter--;
     }
-
-    output.style.border = "1px solid #fcd088"
-    output.style.color = "#fcd088"
-
-
-    output.innerHTML = reverseText(inputText);
-
-    outputText = reverseText(inputText);
-
-    if (validate(inputText, outputText)){
-    console.log("TACOCAT!!!")
-    }
-
-}
-
-function validate(textOne, textTwo) {
-textOne = textOne.replace(/\s|\'|\"/g, '');
-textTwo = textTwo.replace(/\s|\'|\"/g, '');
-
-if (textOne.toLowerCase() == textTwo.toLowerCase()) {
     return true;
 }
-
-    return false;
-}
-
-function reverseText(text) {
-    let output = "";
-    for (let i = text.length - 1; i >= 0; i--) {
-        output += text[i];
-    }
-    return output;
-}
-
-document.getElementById('solve-button').addEventListener('click', function (event) {
-    tacocat();
-});
 </code>
-                                        </pre>
-                                    </div>
-                                </div>
+                                            </pre>
                             </div>
-                            <div class="card">
-                                <div class="card-header" id="headingTwo">
-                                    <h2 class="mb-0">
-                                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                            Collapsible Group Item #2
-                                        </button>
-                                    </h2>
-                                </div>
-                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                                    <div class="card-body">
-                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                    </div>
-                                </div>
+                            <div class="tab-pane fade" id="html" role="tabpanel" aria-labelledby="profile-tab">
+<pre>
+    <code class="language-html line-numbers"><!-- Page Content -->
+        &lt;div class="content content-centered"&gt;
+            &lt;div class="container" id="content-container"&gt;
+                &lt;div class="row text-center"&gt;
+                    &lt;div class="col"&gt;
+                        &lt;div class="&gt;
+                            &lt;h1 class="text-center"&gt;TacocaT&lt;/h1&gt;
+                        &lt;/div&gt;
+                        &lt;ul class="list-unstyled"&gt;
+                            &lt;li&gt;Type some text to see if it's a palindrome!&lt;/li&gt;
+                            &lt;li&gt;The algorithm used for this compares the first &amp; last letters, moving inward each iteration to maximize efficiency.&lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="row text-center bottom-buffer"&gt;
+                    &lt;div class="col-md-12 col-xl-10 input-column"&gt;
+                        &lt;input id="input" class="input-string" type="text" value="" placeholder="Enter some text..." /&gt;
+                    &lt;/div&gt;
+                    &lt;div class="col-md-12 col-xl-2"&gt;
+                        &lt;button id="solve-button" class="custom-button"&gt;
+                            Check
+                        &lt;/button&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="row"&gt;
+                    &lt;div class="col"&gt;
+                        &lt;div class="output-container"&gt;&lt;!--JavaScript Generated Content --&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+            &lt;/div&gt;
+        &lt;/div&gt;
+    </code>
+</pre>
                             </div>
-                            <div class="card">
-                                <div class="card-header" id="headingThree">
-                                    <h2 class="mb-0">
-                                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                            Collapsible Group Item #3
-                                        </button>
-                                    </h2>
-                                </div>
-                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                                    <div class="card-body">
-                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                    </div>
-                                </div>
+                            <div class="tab-pane fade" id="css" role="tabpanel" aria-labelledby="contact-tab">
+<pre>
+    <code class="language-css">
+.output-container {
+    color: #fcd088;
+    font-size: 20px;
+    padding: 12px;
+    width: 100%;
+    min-height: 58px;
+    border: 2px solid #fcd088;
+    display:flex;
+    overflow-x: hidden;
+    transition: border 0.5s ease;
+    
+}
+
+.output-container div:nth-of-type(1) {
+    margin-left: auto;
+}
+
+.output-container div:nth-last-of-type(1) {
+    margin-right: auto;
+}
+
+.output-container div {
+    padding-left: 0.5vw;
+    padding-right: 0.5vw;
+    transition: background-color 0.5s ease;
+}
+    </code>
+</pre>
                             </div>
                         </div>
+                        <!-- COLLAPSIBLE CODE PREVIEW -->
+                        <!--<div class="accordion" id="accordionExample">
+                                <div class="card">
+                                    <div class="card-header" id="headingOne">
+                                        <h2 class="mb-0">
+                                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                Javascript
+                                            </button>
+                                        </h2>
+                                    </div>
+
+                                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <pre>
+    <code class="language-js line-numbers">
+    function tacocat() {
+        inputText = document.getElementById('input-string').value
+        output = document.getElementById('output')
+
+        if (!inputText) {
+        output.style.border = "1px solid red"
+        output.style.color = "red"
+        output.innerHTML = "Please enter some text to reverse."
+        return
+        }
+
+        output.style.border = "1px solid #fcd088"
+        output.style.color = "#fcd088"
+
+
+        output.innerHTML = reverseText(inputText);
+
+        outputText = reverseText(inputText);
+
+        if (validate(inputText, outputText)){
+        console.log("TACOCAT!!!")
+        }
+
+    }
+
+    function validate(textOne, textTwo) {
+    textOne = textOne.replace(/\s|\'|\"/g, '');
+    textTwo = textTwo.replace(/\s|\'|\"/g, '');
+
+    if (textOne.toLowerCase() == textTwo.toLowerCase()) {
+        return true;
+    }
+
+        return false;
+    }
+
+    function reverseText(text) {
+        let output = "";
+        for (let i = text.length - 1; i >= 0; i--) {
+            output += text[i];
+        }
+        return output;
+    }
+
+    document.getElementById('solve-button').addEventListener('click', function (event) {
+        tacocat();
+    });
+    </code>
+                                            </pre>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header" id="headingTwo">
+                                        <h2 class="mb-0">
+                                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                Collapsible Group Item #2
+                                            </button>
+                                        </h2>
+                                    </div>
+                                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header" id="headingThree">
+                                        <h2 class="mb-0">
+                                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                Collapsible Group Item #3
+                                            </button>
+                                        </h2>
+                                    </div>
+                                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>-->
                         <!-- END COLLAPSIBLE -->
                     </div>
                 </div>
