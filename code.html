@@ -76,60 +76,60 @@
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="javascript" role="tabpanel" aria-labelledby="home-tab">
                                 <pre>
-<code class="language-js line-numbers">function checkPalindrome(text) {
+<code class="language-js line-numbers">function tacocat(text) {
     let latter = text.length - 1;
-    let halfwayPoint = latter / 2;
-    for (let former = 0; former < halfwayPoint; b++) {
+    let halfwayPoint = latter / 2; 
+    for (let former = 0; former < halfwayPoint; former++) {
         if (text[former] != text[latter]) {
             return false;
         }
-        latter--;
+        latter--;        
     }
-    return true;
 }
 </code>
                                             </pre>
                             </div>
                             <div class="tab-pane fade" id="html" role="tabpanel" aria-labelledby="profile-tab">
 <pre>
-<code class="language-html line-numbers"><!-- Page Content -->
-	&lt;div class="content content-centered"&gt;
-		&lt;div class="container" id="content-container"&gt;
-			&lt;div class="row text-center"&gt;
-				&lt;div class="col"&gt;
-					&lt;div class="&gt;
-						&lt;h1 class="text-center"&gt;TacocaT&lt;/h1&gt;
-					&lt;/div&gt;
-					&lt;ul class="list-unstyled"&gt;
-						&lt;li&gt;Type some text to see if it's a palindrome!&lt;/li&gt;
-						&lt;li&gt;The algorithm used for this compares the first &amp; last letters, moving inward each iteration to maximize efficiency.&lt;/li&gt;
-					&lt;/ul&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-			&lt;div class="row text-center bottom-buffer"&gt;
-				&lt;div class="col-md-12 col-xl-10 input-column"&gt;
-					&lt;input id="input" class="input-string" type="text" value="" placeholder="Enter some text..." /&gt;
-				&lt;/div&gt;
-				&lt;div class="col-md-12 col-xl-2"&gt;
-					&lt;button id="solve-button" class="custom-button"&gt;
-						Check
-					&lt;/button&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-			&lt;div class="row"&gt;
-				&lt;div class="col"&gt;
-					&lt;div class="output-container"&gt;&lt;!--JavaScript Generated Content --&gt;&lt;/div&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
+<code class="language-html line-numbers">&lt;!-- Page Content --&gt;
+&lt;div class="content content-centered"&gt;
+    &lt;div class="container" id="content-container"&gt;
+        &lt;div class="row text-center"&gt;
+            &lt;div class="col"&gt;
+                &lt;div &gt;
+                    &lt;h1 class="text-center"&gt;TacocaT&lt;/h1&gt;
+                &lt;/div&gt;
+                &lt;ul class="list-unstyled"&gt;
+                    &lt;li &gt;Type some text to see if it's a palindrome!&lt;/li&gt;
+                    &lt;li &gt;The algorithm used for this compares the first &amp; last letters, moving inward each iteration to maximize efficiency.&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="row text-center bottom-buffer"&gt;
+            &lt;div class="col-md-12 col-xl-10 input-column"&gt;
+                &lt;input id="input" class=" input-string" type="text" placeholder="Enter some text..." /&gt;
+            &lt;/div&gt;
+            &lt;div class="col-md-12 col-xl-2"&gt;
+                &lt;button id="solve-button" class=" custom-button"&gt;
+                    Check
+                &lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
 
-		&lt;/div&gt;
-	&lt;/div&gt;
+        &lt;div class="row"&gt;
+            &lt;div class="col"&gt;
+                &lt;div class="output-container"&gt;&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
 </code>
 </pre>
                             </div>
                             <div class="tab-pane fade" id="css" role="tabpanel" aria-labelledby="contact-tab">
 <pre>
-    <code class="language-css">.output-container {
+<code class="language-css">.output-container {
     color: #fcd088;
     font-size: 20px;
     padding: 12px;
@@ -155,7 +155,7 @@
     padding-right: 0.5vw;
     transition: background-color 0.5s ease;
 }
-    </code>
+</code>
 </pre>
                             </div>
                         </div>
